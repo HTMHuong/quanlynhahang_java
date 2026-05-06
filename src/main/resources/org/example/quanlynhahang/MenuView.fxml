@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.paint.*?>
+
+<BorderPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #050505;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.quanlynhahang.controllers.MenuController">
+
+    <!-- Header: Đẳng cấp thượng lưu với hiệu ứng tỏa sáng -->
+    <top>
+        <HBox alignment="CENTER_LEFT" prefHeight="80.0" spacing="20.0" style="-fx-background-color: #0A0A0A; -fx-border-color: #C5A059; -fx-border-width: 0 0 0.5 0;" BorderPane.alignment="CENTER">
+            <children>
+                <VBox alignment="CENTER_LEFT">
+                    <children>
+                        <Label text="TOPPINGS" textFill="#C5A059" style="-fx-letter-spacing: 5px;">
+                            <font><Font name="Times New Roman Bold" size="28.0" /></font>
+                            <effect><Glow level="0.3" /></effect>
+                        </Label>
+                        <Label text="LUXURY GASTRONOMY" textFill="#6B5E4C" style="-fx-letter-spacing: 3px;">
+                            <font><Font size="9.0" /></font>
+                        </Label>
+                    </children>
+                </VBox>
+                <Region HBox.hgrow="ALWAYS" />
+                <Label text="✧✧✧" textFill="#C5A059" opacity="0.5">
+                    <font><Font size="18.0" /></font>
+                </Label>
+            </children>
+            <padding>
+                <Insets left="40.0" right="40.0" />
+            </padding>
+        </HBox>
+    </top>
+
+    <!-- Left: Navigation Menu tinh tế -->
+    <left>
+        <VBox prefWidth="220.0" spacing="15.0" style="-fx-background-color: #050505; -fx-border-color: #222; -fx-border-width: 0 0.5 0 0;" BorderPane.alignment="CENTER">
+            <children>
+                <Label text="SÉLECTION" textFill="#6B5E4C" style="-fx-letter-spacing: 4px;">
+                    <font><Font name="System Bold" size="10.0" /></font>
+                    <VBox.margin><Insets bottom="15.0" top="10.0"/></VBox.margin>
+                </Label>
+
+                <!-- Buttons được làm mỏng và thanh thoát hơn -->
+                <Button fx:id="btnAll" maxWidth="1.7976931348623157E308" onAction="#filterAll"
+                        style="-fx-background-color: #C5A059; -fx-text-fill: #000; -fx-background-radius: 0; -fx-cursor: hand;" text="TẤT CẢ">
+                    <font> <Font name="System Bold" size="12.0" /> </font>
+                    <padding><Insets bottom="12" top="12"/></padding>
+                </Button>
+
+                <VBox spacing="5.0">
+                    <Button fx:id="btnAppetizer" maxWidth="1.7976931348623157E308" onAction="#filterAppetizer"
+                            style="-fx-background-color: transparent; -fx-text-fill: #A89A85; -fx-border-color: #333; -fx-border-width: 0 0 0.3 0; -fx-cursor: hand;" text="KHAI VỊ" />
+                    <Button fx:id="btnMainCourse" maxWidth="1.7976931348623157E308" onAction="#filterMain"
+                            style="-fx-background-color: transparent; -fx-text-fill: #A89A85; -fx-border-color: #333; -fx-border-width: 0 0 0.3 0; -fx-cursor: hand;" text="MÓN CHÍNH" />
+                    <Button fx:id="btnDrink" maxWidth="1.7976931348623157E308" onAction="#filterDrink"
+                            style="-fx-background-color: transparent; -fx-text-fill: #A89A85; -fx-border-color: #333; -fx-border-width: 0 0 0.3 0; -fx-cursor: hand;" text="ĐỒ UỐNG" />
+                    <Button fx:id="btnDessert" maxWidth="1.7976931348623157E308" onAction="#filterDessert"
+                            style="-fx-background-color: transparent; -fx-text-fill: #A89A85; -fx-border-color: #333; -fx-border-width: 0 0 0.3 0; -fx-cursor: hand;" text="TRÁNG MIỆNG" />
+                </VBox>
+            </children>
+            <padding>
+                <Insets bottom="20.0" left="25.0" right="20.0" top="30.0" />
+            </padding>
+        </VBox>
+    </left>
+
+    <!-- Center: Khu vực hiển thị món ăn (Bling Bling Background) -->
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-background: #080808; -fx-border-color: transparent;">
+            <content>
+                <FlowPane fx:id="paneMenuList" hgap="25.0" vgap="25.0" style="-fx-background-color: #080808;">
+                    <padding>
+                        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                    </padding>
+                </FlowPane>
+            </content>
+        </ScrollPane>
+    </center>
+
+    <!-- Right: Giỏ hàng - Tone màu Dark Ivory quý phái -->
+    <right>
+        <VBox prefWidth="360.0" spacing="20.0" style="-fx-background-color: #FDFCF9; -fx-border-color: #C5A059; -fx-border-width: 0 0 0 0.5;" BorderPane.alignment="CENTER">
+            <children>
+                <VBox alignment="CENTER" spacing="5">
+                    <children>
+                        <Label text="MY ORDER" textFill="#1A1A1A" style="-fx-letter-spacing: 3px;">
+                            <font><Font name="System Bold" size="16.0" /></font>
+                        </Label>
+                        <Line endX="50" stroke="#C5A059" strokeWidth="0.8" />
+                    </children>
+                </VBox>
+
+                <!-- TableView: Làm sạch để không bị thô -->
+                <TableView fx:id="tableCart" prefHeight="350.0" style="-fx-background-color: transparent; -fx-border-color: #EEE; -fx-border-width: 1 0 1 0;">
+                    <columns>
+                        <TableColumn fx:id="colTenMon" prefWidth="120.0" text="MÓN" />
+                        <TableColumn fx:id="colSoLuong" prefWidth="40.0" text="SL" />
+                        <TableColumn fx:id="colGia" prefWidth="90.0" text="GIÁ" />
+                        <TableColumn fx:id="colGhiChu" prefWidth="65.0" text="LƯU Ý" />
+                    </columns>
+                </TableView>
+
+                <VBox spacing="15.0" style="-fx-background-color: white; -fx-padding: 20; -fx-border-color: #F0F0F0;">
+                    <children>
+                        <Button maxWidth="1.7976931348623157E308" onAction="#handleMembershipCard"
+                                style="-fx-background-color: #1A1A1A; -fx-text-fill: #F9E2AF; -fx-background-radius: 0; -fx-cursor: hand;" text="✦ MEMBERSHIP VIP">
+                            <font> <Font name="System Bold" size="12.0" /> </font>
+                            <padding><Insets bottom="10" top="10"/></padding>
+                        </Button>
+                        <Label fx:id="lblCustomerName" text="CHỦ TIỆC: TRỐNG" textFill="#777">
+                            <font><Font name="Georgia" size="12.0" /></font>
+                        </Label>
+                        <Separator opacity="0.3"/>
+                        <HBox alignment="CENTER_RIGHT" spacing="10">
+                            <children>
+                                <Label text="TỔNG TIỀN:" textFill="#1A1A1A">
+                                    <font><Font size="13.0" /></font>
+                                </Label>
+                                <Label fx:id="lblTotal" text="0 VNĐ" textFill="#B38E44">
+                                    <font> <Font name="Times New Roman Bold" size="22.0" /> </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                    </children>
+                    <effect><DropShadow color="#00000011" radius="10" /></effect>
+                </VBox>
+
+                <Button maxWidth="1.7976931348623157E308" onAction="#handleConfirmOrder"
+                        style="-fx-background-color: #C5A059; -fx-cursor: hand; -fx-background-radius: 0; -fx-text-fill: white;" text="XÁC NHẬN ĐẶT MÓN">
+                    <font> <Font name="System Bold" size="14.0" /> </font>
+                    <padding> <Insets bottom="15.0" top="15.0" /> </padding>
+                    <effect><InnerShadow color="#FFFFFF44" radius="5" /></effect>
+                </Button>
+            </children>
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+        </VBox>
+    </right>
+
+    <!-- Bottom: Footer thu gọn, tinh tế -->
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" prefHeight="40.0" spacing="25.0" style="-fx-background-color: #050505; -fx-border-color: #222; -fx-border-width: 0.5 0 0 0;">
+            <children>
+                <Label text="TOPPINGS POS SYSTEM v1.0" textFill="#333">
+                    <font><Font size="9.0"/></font>
+                </Label>
+                <Label fx:id="lblTableInfo" text="SUITE 05" textFill="#C5A059">
+                    <font><Font name="Times New Roman Bold" size="13.0" /></font>
+                    <effect><Glow level="0.5" /></effect>
+                </Label>
+            </children>
+            <padding><Insets right="40.0" /></padding>
+        </HBox>
+    </bottom>
+</BorderPane>

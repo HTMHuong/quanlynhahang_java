@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.paint.*?>
+
+<StackPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #050505;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.quanlynhahang.controllers.WelcomeController">
+    <children>
+        <!-- Nền tỏa sáng nhẹ phía sau -->
+        <Circle radius="300" fill="#1F1A12">
+            <effect><GaussianBlur radius="80" /></effect>
+        </Circle>
+
+        <!-- KHUNG CHÍNH: Thu nhỏ bằng maxWidth/maxHeight -->
+        <VBox alignment="CENTER" maxWidth="700.0" maxHeight="600.0" spacing="0.0">
+            <style>
+                -fx-border-color: linear-gradient(to bottom right, #C5A059, #5D4723, #F9E2AF, #C5A059);
+                -fx-border-width: 0.8;
+                -fx-background-color: rgba(10, 10, 10, 0.7);
+            </style>
+            <padding>
+                <Insets bottom="30.0" left="40.0" right="40.0" top="30.0" />
+            </padding>
+
+            <children>
+                <!-- Phù hiệu nhỏ gọn -->
+                <VBox alignment="CENTER" spacing="5">
+                    <Label text="✧" textFill="#F9E2AF">
+                        <font><Font size="18.0" /></font>
+                        <effect><Glow level="0.8" /></effect>
+                    </Label>
+                    <Label text="THE EXQUISITE COLLECTION" textFill="#C5A059" style="-fx-letter-spacing: 5px;">
+                        <font><Font name="System Light" size="10.0" /></font>
+                    </Label>
+                    <VBox.margin><Insets bottom="30.0" /></VBox.margin>
+                </VBox>
+
+                <!-- Brand Name: Giảm size font để vừa khung nhỏ -->
+                <VBox alignment="CENTER" spacing="-10.0">
+                    <children>
+                        <Label text="TOPPINGS" style="-fx-letter-spacing: 10px;">
+                            <font>
+                                <Font name="Times New Roman" size="80.0" />
+                            </font>
+                            <textFill>
+                                <LinearGradient endX="1.0" endY="1.0">
+                                    <stops>
+                                        <Stop color="#C5A059" offset="0.0" />
+                                        <Stop color="#F9E2AF" offset="0.5" />
+                                        <Stop color="#8E6E37" offset="1.0" />
+                                    </stops>
+                                </LinearGradient>
+                            </textFill>
+                            <effect>
+                                <DropShadow color="#C5A05933" radius="20" spread="0.1" />
+                            </effect>
+                        </Label>
+                        <HBox alignment="CENTER" spacing="15.0">
+                            <children>
+                                <Line endX="40.0" stroke="#C5A059" strokeWidth="0.5" opacity="0.6" />
+                                <Label text="ULTIMATE LUXURY" textFill="WHITE" style="-fx-letter-spacing: 3px;">
+                                    <font><Font name="System Light" size="9.0" /></font>
+                                </Label>
+                                <Line endX="40.0" stroke="#C5A059" strokeWidth="0.5" opacity="0.6" />
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+
+                <!-- Slogan: Giảm size -->
+                <Label text="“Nơi di sản ẩm thực hội tụ cùng sự xa hoa”" textFill="#D4C2A1">
+                    <font>
+                        <Font name="Georgia Italic" size="16.0" />
+                    </font>
+                    <VBox.margin><Insets top="30.0" bottom="40.0" /></VBox.margin>
+                </Label>
+
+                <!-- Interaction Section -->
+                <VBox alignment="CENTER" spacing="25.0">
+                    <children>
+                        <ComboBox fx:id="comboLanguage" prefHeight="35.0" prefWidth="200.0" promptText="Lựa chọn ngôn ngữ"
+                                  style="-fx-background-color: transparent; -fx-border-color: #444; -fx-border-width: 0.5; -fx-text-fill: white;" />
+
+                        <Button mnemonicParsing="false" onAction="#handleStartOrder" prefHeight="50.0" prefWidth="280.0"
+                                style="-fx-background-color: transparent; -fx-border-color: #C5A059; -fx-border-width: 0.8; -fx-text-fill: white; -fx-cursor: hand; -fx-letter-spacing: 3px;"
+                                text="KHÁM PHÁ NGAY">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </VBox>
+
+                <!-- Footer: Grand Suite -->
+                <VBox alignment="CENTER" spacing="8.0">
+                    <VBox.margin><Insets top="50.0" /></VBox.margin>
+                    <children>
+                        <Separator maxWidth="150" opacity="0.2" />
+                        <Label text="POSITION" textFill="#6B5E4C" style="-fx-letter-spacing: 3px;">
+                            <font><Font size="8.0" /></font>
+                        </Label>
+                        <Label fx:id="lblTable" text="GRAND SUITE 05" textFill="#F9E2AF">
+                            <font>
+                                <Font name="Times New Roman" size="24.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </VBox>
+            </children>
+            <effect>
+                <DropShadow color="#000000BB" radius="50" />
+            </effect>
+        </VBox>
+
+        <!-- Kim cương lấp lánh (Bling) ở 4 góc khung -->
+        <Label text="✦" textFill="#F9E2AF" StackPane.alignment="CENTER">
+            <StackPane.margin><Insets bottom="310.0" right="710.0"/></StackPane.margin>
+            <effect><Glow level="1.0"/></effect>
+        </Label>
+        <Label text="✦" textFill="#F9E2AF" StackPane.alignment="CENTER">
+            <StackPane.margin><Insets top="310.0" left="710.0"/></StackPane.margin>
+            <effect><Glow level="1.0"/></effect>
+        </Label>
+    </children>
+</StackPane>

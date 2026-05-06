@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<!-- Ép chiều cao tối đa (maxHeight) để không bao giờ bị dài quá mức -->
+<VBox fx:id="itemRoot" prefWidth="260" maxHeight="110" spacing="4"
+      style="-fx-background-color: #262626; -fx-border-color: #C5A059; -fx-border-width: 1; -fx-padding: 6 10 6 10; -fx-border-radius: 4; -fx-background-radius: 4;"
+      xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <!-- Dòng 1: Số bàn và Số lượng (Làm cực mảnh) -->
+        <HBox alignment="CENTER_LEFT" style="-fx-padding: 0 0 2 0; -fx-border-color: #444; -fx-border-width: 0 0 0.5 0;">
+            <children>
+                <Label fx:id="lblTableNum" style="-fx-font-weight: bold; -fx-font-family: 'Serif';" text="BÀN 01" textFill="#C5A059">
+                    <font><Font size="12.0" /></font>
+                </Label>
+                <Region HBox.hgrow="ALWAYS" />
+                <Label fx:id="lblQuantity" style="-fx-font-weight: bold;" text="x1" textFill="WHITE">
+                    <font><Font size="12.0" /></font>
+                </Label>
+            </children>
+        </HBox>
+
+        <!-- Dòng 2: Tên món (Để cỡ 14 cho dễ nhìn nhưng không chiếm chỗ) -->
+        <Label fx:id="lblFoodName" text="TÊN MÓN ĂN" textFill="WHITE" wrapText="true">
+            <font><Font name="System Bold" size="14.0" /></font>
+        </Label>
+
+        <!-- Dòng 3: Ghi chú (Cho cỡ chữ siêu nhỏ 10px) -->
+        <Label fx:id="lblNote" style="-fx-font-size: 10px; -fx-font-style: italic;" text="Ghi chú: ..." textFill="#999999" wrapText="false" />
+
+        <!-- Dòng 4: Nút bấm (Thu hẹp chiều cao tối đa) -->
+        <Button fx:id="btnDone" maxWidth="Infinity" prefHeight="22.0"
+                style="-fx-background-color: #C5A059; -fx-text-fill: black; -fx-font-weight: bold; -fx-cursor: hand; -fx-font-size: 10px; -fx-background-radius: 2;"
+                text="HÀNH ĐỘNG" />
+    </children>
+</VBox>

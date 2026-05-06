@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+
+<VBox spacing="15" prefWidth="450" style="-fx-background-color: white; -fx-border-color: #C5A059; -fx-border-width: 2; -fx-background-radius: 10; -fx-border-radius: 10;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.quanlynhahang.controllers.AddDishController">
+    <padding>
+        <Insets top="20" right="25" bottom="20" left="25"/>
+    </padding>
+    <children>
+        <Label text="Thêm món vào thực đơn ngày" style="-fx-font-weight: bold;">
+            <font><Font size="16.0" /></font>
+        </Label>
+
+        <VBox spacing="5">
+            <Label text="Tên món ăn *" />
+            <TextField fx:id="txtFoodName" promptText="Nhập tên món..." />
+        </VBox>
+
+        <HBox spacing="15">
+            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                <Label text="Nhóm món *" />
+                <ComboBox fx:id="cbCategory" maxWidth="Infinity" />
+            </VBox>
+            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                <Label text="Giá tiền *" />
+                <TextField fx:id="txtPrice" promptText="VND" />
+            </VBox>
+        </HBox>
+
+        <VBox spacing="5">
+            <Label text="Mô tả ngắn" />
+            <TextArea fx:id="txtDescription" prefHeight="80" promptText="(Mô tả nguyên liệu, đặc điểm nổi bật...)" wrapText="true" />
+        </VBox>
+
+        <HBox spacing="15" alignment="CENTER_RIGHT" style="-fx-padding: 10 0 0 0;">
+            <Button text="Hủy" onAction="#handleCancel" prefWidth="100" style="-fx-background-color: white; -fx-border-color: #888888; -fx-border-radius: 5;" />
+            <Button text="Thêm món vào thực đơn" onAction="#handleAdd" prefWidth="180" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" />
+        </HBox>
+    </children>
+</VBox>
